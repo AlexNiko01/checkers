@@ -60,54 +60,53 @@ html {
 
 html, body {
     min-height: 100%;
+    background-color: #c0c0c0;
     padding: 50px;
+    color: #000;
 }
 
 .board {
-    box-shadow: 1px 1px 6px #000;
     position: relative;
     font-size: 0;
-    width: 50vmax;
-    height: 50vmax;
-    background: url("../img/bc.jpg") repeat 50% 50%;
-    background-size: cover;
-    margin: auto;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.board:after {
-    background: url("../img/bc.jpg") repeat 50% 50%;
-    background-size: cover;
-    transform: translate(-50%, -50%);
-    left: 50%;
-    top: 50%;
-    position: absolute;
-    box-shadow: inset 1px 1px 6px #000;
+    width: 80vmin;
+    height: 80vmin;
     border: 1px solid #000;
-    padding-bottom: 88%;
-    content: '';
-    display: block;
-    width: 88%;
+    outline:20px solid #fff;
+    background-color: #fff;
+    margin: auto;
 }
 
 .board .ba-row {
-    height: 11.01%;
-    position: relative;
-    width: 88%;
-    top: 6%;
-    left: 6%;
+    height: 12.5%;
+    position: absolute;
+    width: 100%;
+    left: 0;
 }
 
 .board .ba-row > div {
     width: 12.5%;
-    display: inline-block;
+    display: block;
     height: 100%;
-    position: relative;
-    z-index: 9;
+    position: absolute;
 }
+
+.board .ba-row:nth-of-type(1) {top: 0}
+.board .ba-row:nth-of-type(2) {top: calc(12.5%*1)}
+.board .ba-row:nth-of-type(3) {top: calc(12.5%*2)}
+.board .ba-row:nth-of-type(4) {top: calc(12.5%*3)}
+.board .ba-row:nth-of-type(5) {top: calc(12.5%*4)}
+.board .ba-row:nth-of-type(6) {top: calc(12.5%*5)}
+.board .ba-row:nth-of-type(7) {top: calc(12.5%*6)}
+.board .ba-row:nth-of-type(8) {top: calc(12.5%*7)}
+
+.board .ba-row > div:nth-of-type(1) {left: 0}
+.board .ba-row > div:nth-of-type(2) {left: calc(12.5%*1)}
+.board .ba-row > div:nth-of-type(3) {left: calc(12.5%*2)}
+.board .ba-row > div:nth-of-type(4) {left: calc(12.5%*3)}
+.board .ba-row > div:nth-of-type(5) {left: calc(12.5%*4)}
+.board .ba-row > div:nth-of-type(6) {left: calc(12.5%*5)}
+.board .ba-row > div:nth-of-type(7) {left: calc(12.5%*6)}
+.board .ba-row > div:nth-of-type(8) {left: calc(12.5%*7)}
 
 .board .ba-row:nth-child(2n-1) > div:nth-child(2n-1),
 .board .ba-row:nth-child(2n) > div:nth-child(2n) {
@@ -117,9 +116,9 @@ html, body {
 .board .ba-row:nth-of-type(1) > div:nth-child(2n-1):after,
 .board .ba-row:nth-of-type(2) > div:nth-child(2n):after,
 .board .ba-row:nth-of-type(3) > div:nth-child(2n-1):after,
-.board .ba-row:nth-of-type(6) > div:nth-child(2n-1):after,
-.board .ba-row:nth-of-type(7) > div:nth-child(2n):after,
-.board .ba-row:nth-of-type(8) > div:nth-child(2n-1):after {
+.board .ba-row:nth-of-type(6) > div:nth-child(2n):after,
+.board .ba-row:nth-of-type(7) > div:nth-child(2n-1):after,
+.board .ba-row:nth-of-type(8) > div:nth-child(2n):after {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -138,62 +137,154 @@ html, body {
     box-shadow: 1px 3px 6px #fff;
 }
 
-.board .ba-row:nth-of-type(6) > div:nth-child(2n-1):after,
-.board .ba-row:nth-of-type(7) > div:nth-child(2n):after,
-.board .ba-row:nth-of-type(8) > div:nth-child(2n-1):after {
+.board .ba-row:nth-of-type(6) > div:nth-child(2n):after,
+.board .ba-row:nth-of-type(7) > div:nth-child(2n-1):after,
+.board .ba-row:nth-of-type(8) > div:nth-child(2n):after {
     background-color: #fff;
-    box-shadow: 1px 6px 6px #000;
+    box-shadow: 1px 6px 6px #ff60bf;
 }
 
 .board .ba-row:nth-of-type(1) > div:nth-child(2n-1):hover:after,
 .board .ba-row:nth-of-type(2) > div:nth-child(2n):hover:after,
 .board .ba-row:nth-of-type(3) > div:nth-child(2n-1):hover:after,
-.board .ba-row:nth-of-type(6) > div:nth-child(2n-1):hover:after,
-.board .ba-row:nth-of-type(7) > div:nth-child(2n):hover:after,
-.board .ba-row:nth-of-type(8) > div:nth-child(2n-1):hover:after {
+.board .ba-row:nth-of-type(6) > div:nth-child(2n):hover:after,
+.board .ba-row:nth-of-type(7) > div:nth-child(2n-1):hover:after,
+.board .ba-row:nth-of-type(8) > div:nth-child(2n):hover:after {
     transform: translate(-50%, -70%);
 }
-
-.board ul {
+.board .ba-row:nth-of-type(1) > div:before,
+.board .ba-row:nth-of-type(8) > div:before,
+.ba-row.ba-row:before,
+.ba-row.ba-row:after{
     position: absolute;
-    z-index: 999;
-    font-size: 16px;
-    text-transform: uppercase;
-    list-style: none;
-    font-weight:bold;
+    display: block;
+    font-size: 20px;
+}
+.board .ba-row:nth-of-type(1) > div:before,
+.board .ba-row:nth-of-type(8) > div:before{
+    left: 39%;
+}
+.board .ba-row:nth-of-type(1) > div:before{
+    top: -20px;
+}
+.board .ba-row:nth-of-type(8) > div:before{
+    bottom: -20px;
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(1):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(1):before{
+    content: 'A';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(2):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(2):before{
+    content: 'B';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(3):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(3):before{
+    content: 'C';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(4):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(4):before{
+    content: 'D';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(5):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(5):before{
+    content: 'E';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(6):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(6):before{
+    content: 'F';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(7):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(7):before{
+    content: 'G';
+}
+.board .ba-row:nth-of-type(1) > div:nth-child(8):before,
+.board .ba-row:nth-of-type(8) > div:nth-child(8):before{
+    content: 'H';
+}
+.ba-row.ba-row:before,
+.ba-row.ba-row:after{
+    top: 35%;
+}
+.ba-row.ba-row:before{
+    left: -15px;
+}
+.ba-row.ba-row:after{
+    right: -15px;
+}
+.ba-row.ba-row:nth-of-type(1):before,
+.ba-row.ba-row:nth-of-type(1):after{
+    content: '8';
+}
+.ba-row.ba-row:nth-of-type(2):before,
+.ba-row.ba-row:nth-of-type(2):after{
+    content: '7';
+}
+.ba-row.ba-row:nth-of-type(3):before,
+.ba-row.ba-row:nth-of-type(3):after{
+    content: '6';
+}
+.ba-row.ba-row:nth-of-type(4):before,
+.ba-row.ba-row:nth-of-type(4):after{
+    content: '5';
+}
+.ba-row.ba-row:nth-of-type(5):before,
+.ba-row.ba-row:nth-of-type(5):after{
+    content: '4';
+}
+.ba-row.ba-row:nth-of-type(6):before,
+.ba-row.ba-row:nth-of-type(6):after{
+    content: '3';
+}
+.ba-row.ba-row:nth-of-type(7):before,
+.ba-row.ba-row:nth-of-type(7):after{
+    content: '2';
+}
+.ba-row.ba-row:nth-of-type(8):before,
+.ba-row.ba-row:nth-of-type(8):after{
+    content: '1';
 }
 
-.board [class^="letters"] {
-    width: 88%;
-    left: 11.2%;
-}
+/*.board ul {*/
+    /*position: absolute;*/
+    /*z-index: 999;*/
+    /*font-size: 16px;*/
+    /*text-transform: uppercase;*/
+    /*list-style: none;*/
+    /*font-weight:bold;*/
+/*}*/
 
-.board .letters-top {
-    top: 1%;
-}
+/*.board [class^="letters"] {*/
+    /*width: 100%;*/
+    /*left: 26px;*/
+/*}*/
 
-.board .letters-bottom {
-    bottom: 1%;
-}
+/*.board .letters-top {*/
+    /*top: -20px;*/
+/*}*/
 
-.board [class^="numbers"] {
-    height: 88%;
-    top: 10%;
-}
+/*.board .letters-bottom {*/
+    /*bottom: -20px;*/
+/*}*/
 
-.board .numbers-left {
-    left: 2%;
-}
+/*.board [class^="numbers"] {*/
+    /*height: 100%;*/
+    /*top: 26px;*/
+/*}*/
 
-.board .numbers-right {
-    right: 2%;
-}
+/*.board .numbers-left {*/
+    /*left: -15px;*/
+/*}*/
 
-.board [class^="letters"] li {
-    display: inline-block;
-    width: 11.2%;
-}
+/*.board .numbers-right {*/
+    /*right: -15px;*/
+/*}*/
 
-.board [class^="numbers"] li {
-    height: 12.3%;
-}
+/*.board [class^="letters"] li {*/
+    /*display: inline-block;*/
+    /*width: 11.1%;*/
+/*}*/
+
+/*.board [class^="numbers"] li {*/
+    /*height: 12.5%;*/
+/*}*/
